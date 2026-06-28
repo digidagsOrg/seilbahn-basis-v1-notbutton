@@ -18,16 +18,6 @@ input.onButtonPressed(Button.A, function () {
     basic.pause(100)
     MotorDriver.MotorRun(Motor.A, Dir.forward, 4)
 })
-pins.onPulsed(DigitalPin.P2, PulseValue.Low, function () {
-    basic.showIcon(IconNames.SmallHeart)
-    // Seilbahn fährt los
-    arrived = 0
-    pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
-    basic.pause(1000)
-    basic.showIcon(IconNames.Heart)
-    MotorDriver.MotorRun(Motor.A, Dir.forward, 4)
-    pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
-})
 function setDistance () {
     // P0 = Trigger
     pins.digitalWritePin(DigitalPin.P0, 0)
@@ -53,7 +43,6 @@ let read_distance = 0
 let arrived = 0
 arrived = 1
 radio.setGroup(11)
-pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
 basic.showIcon(IconNames.Heart)
 basic.forever(function () {
     basic.pause(500)
